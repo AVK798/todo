@@ -3,18 +3,28 @@ pipeline {
 
     label "NODES"
     }
+    
     stages {
+
+        stage ("Download Dependices") {
+         steps {
+
+            sh '''
+              npm ci
+            '''
+         }
+        }
         stage ('make artificats') {
          steps {
             sh '''
-            zip -r frontend.zip *
+            zip -r todo.zip node_modules server.js
             '''
          }
         }
      stage ('upload the Artifact to Nexus') {
         steps {
          sh'''
-            curl -v -u admin:nexus123 --upload-file frontend.zip  http://3.229.118.28:8081/repository/frontend/frontend.zip
+            curl -v -u admin:nexus123 --upload-file todo.zip  http://13.222.207.100:8081/repository/todo/todo.zip
 
          '''
         }
