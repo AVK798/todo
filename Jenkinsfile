@@ -38,6 +38,6 @@ todo (
 
    Service : 'todo',
    Slave   : 'NODEJS',
-   App_type: 'todo'
+   App_type: 'Nodejs'
 
 )
