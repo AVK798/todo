@@ -1,7 +1,6 @@
-FROM node
+FROM node:14
 RUN mkdir /app
 WORKDIR /app
 COPY package.json server.js /app/
 RUN npm install
-RUN npm run build
 CMD ["node", "server.js"]
