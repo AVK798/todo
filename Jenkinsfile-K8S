@@ -12,14 +12,18 @@ pipeline {
 
         stage('Deploy to DEV Env') {
             steps {
+                withCredentials([
+                    file(credentialsId: 'kubeconfig',
+                         variable: 'KUBECONFIG')
+                ]) {
                 sh '''
                     helm upgrade -i todo helm/. --set image.tag=${VERSION}
                     
-                '''
+                  '''
+                }
             }
-        }
 
+        }
     }
 }
-
 
