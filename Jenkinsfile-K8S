@@ -13,7 +13,7 @@ pipeline {
         stage('Deploy to DEV Env') {
             steps {
                 sh '''
-                    helm upgrade -i todo helm/. 
+                    helm upgrade -i todo helm/. --set image.tag=${VERSION}
                     
                 '''
             }
@@ -22,4 +22,4 @@ pipeline {
     }
 }
 
-// --set image.tag=${VERSION}
+
