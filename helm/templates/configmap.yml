@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: todo
+  name: app2
 data:      
   TODO_API_PORT: {{ .Values.ConfigMap.TODO_API_PORT | quote}}
   REDIS_HOST: {{ .Values.ConfigMap.REDIS_HOST | quote }}
