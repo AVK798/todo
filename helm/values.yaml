@@ -15,7 +15,7 @@ image:
 
 # This is for the secrets for pulling an image from a private repository more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
 imagePullSecrets: 
-  - name: ecr1-secret
+  - name: ecrr-secret
 # This is to override the chart name.
 nameOverride: ""
 fullnameOverride: ""
@@ -56,9 +56,9 @@ service:
   type: ClusterIP
   # This sets the ports more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#field-spec-ports
   port: 80
-  targetPort: 3002
+  targetPort: 8080
 container:
-  port: 3002
+  port: 8080
 
 # This block is for setting up the ingress for more information can be found here: https://kubernetes.io/docs/concepts/services-networking/ingress/
 ingress:
@@ -164,6 +164,6 @@ tolerations: []
 
 affinity: {}
 
-ConfigMap:
-  TODO_API_PORT: 3002
+env:
+  TODO_API_PORT: 8080
   REDIS_HOST: redis

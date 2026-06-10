@@ -3,5 +3,5 @@ kind: ConfigMap
 metadata:
   name: app2
 data:      
-  TODO_API_PORT: {{ .Values.ConfigMap.TODO_API_PORT | quote}}
-  REDIS_HOST: {{ .Values.ConfigMap.REDIS_HOST | quote }}
+  TODO_API_PORT: {{ .Values.env.TODO_API_PORT | quote}}
+  REDIS_HOST: {{ .Values.env.REDIS_HOST | quote }}

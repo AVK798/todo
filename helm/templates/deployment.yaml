@@ -35,8 +35,8 @@ spec:
       containers:
         - name: {{ .Chart.Name }}
           envFrom:
-             - configMapRef:
-                name: app2
+           - configMapRef:
+              name: app2
           {{- with .Values.securityContext }}
           securityContext:
             {{- toYaml . | nindent 12 }}
